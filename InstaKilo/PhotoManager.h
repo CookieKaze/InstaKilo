@@ -18,5 +18,6 @@
 -(void) createMasterCollection;
 -(void) sortByLocation;
 -(void) sortBySubject;
+-(NSString*) getImageName: (NSIndexPath *) indexPath;
 
 @end

@@ -9,6 +9,7 @@
 
 #import "ViewController.h"
 #import "PhotoManager.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -33,12 +34,29 @@
 - (IBAction)sortLocation:(UIBarButtonItem *)sender {
     [self.photoManager sortByLocation];
     [self.collectionView reloadData];
+    [self.collectionView scrollToItemAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]
+                                atScrollPosition: UICollectionViewScrollPositionTop
+                                        animated:YES];
 }
 
 - (IBAction)sortSubject:(UIBarButtonItem *)sender {
     [self.photoManager sortBySubject];
     [self.collectionView reloadData];
+    [self.collectionView scrollToItemAtIndexPath: [NSIndexPath indexPathForRow:0 inSection:0]
+                                atScrollPosition: UICollectionViewScrollPositionTop
+                                        animated:YES];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString * imageName = [self.photoManager getImageName:indexPath];
+    [self performSegueWithIdentifier:@"toDetailViewController" sender:imageName];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toDetailViewController"]) {
+        DetailViewController * dvc = [segue destinationViewController];
+        dvc.imageName = sender;
+    }
+}
 
 @end

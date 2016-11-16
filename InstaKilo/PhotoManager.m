@@ -165,4 +165,18 @@
     }
     return count;
 }
+
+-(NSString*) getImageName: (NSIndexPath *) indexPath {
+    NSString * name;
+    Photo * currentPhoto;
+    if (!self.sortedBy) {
+        currentPhoto = self.masterCollection[indexPath.row];
+        name = currentPhoto.name;
+    } else {
+        NSArray * sectionPhotos = self.sortedCollection[indexPath.section];
+        currentPhoto = sectionPhotos[indexPath.row];
+        name = currentPhoto.name;
+    }
+    return name;
+}
 @end
