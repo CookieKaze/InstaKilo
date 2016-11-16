@@ -26,6 +26,7 @@
 		1D9D4B2D1DDCC314005048CA /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D4B2C1DDCC314005048CA /* Photo.m */; };
 		1D9D4B301DDCC36C005048CA /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D4B2F1DDCC36C005048CA /* PhotoManager.m */; };
 		1D9D4B331DDCD898005048CA /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D4B321DDCD898005048CA /* CollectionViewCell.m */; };
+		1D9D4B361DDCF5ED005048CA /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9D4B351DDCF5ED005048CA /* CollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		1D9D4B2F1DDCC36C005048CA /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoManager.m; sourceTree = "<group>"; };
 		1D9D4B311DDCD898005048CA /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		1D9D4B321DDCD898005048CA /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		1D9D4B341DDCF5ED005048CA /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
+		1D9D4B351DDCF5ED005048CA /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				1D9D4B051DDCC04D005048CA /* ViewController.h */,
 				1D9D4B061DDCC04D005048CA /* ViewController.m */,
 				1D9D4B081DDCC04D005048CA /* Main.storyboard */,
+				1D9D4B341DDCF5ED005048CA /* CollectionReusableView.h */,
+				1D9D4B351DDCF5ED005048CA /* CollectionReusableView.m */,
 				1D9D4B311DDCD898005048CA /* CollectionViewCell.h */,
 				1D9D4B321DDCD898005048CA /* CollectionViewCell.m */,
 				1D9D4B2E1DDCC36C005048CA /* PhotoManager.h */,
@@ -219,6 +224,7 @@
 				1D9D4B301DDCC36C005048CA /* PhotoManager.m in Sources */,
 				1D9D4B041DDCC04D005048CA /* AppDelegate.m in Sources */,
 				1D9D4B011DDCC04D005048CA /* main.m in Sources */,
+				1D9D4B361DDCF5ED005048CA /* CollectionReusableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

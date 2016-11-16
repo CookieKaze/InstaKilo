@@ -9,6 +9,7 @@
 #import "PhotoManager.h"
 #import "Photo.h"
 #import "CollectionViewCell.h"
+#import "CollectionReusableView.h"
 
 
 @interface PhotoManager ()
@@ -16,7 +17,7 @@
 @end
 
 @implementation PhotoManager 
-
+#pragma mark - Setup
 - (instancetype)init
 {
     self = [super init];
@@ -25,6 +26,7 @@
     }
     return self;
 }
+
 -(void) createMasterCollection {
     if (!_masterCollection) {
         _masterCollection = [[NSMutableArray alloc] init];
@@ -82,7 +84,9 @@
     }
 }
 
+#pragma mark - Sorting
 -(void) sortByLocation {
+    self.sortedBy = @"Location";
     NSMutableArray * shibuyaArray = [[NSMutableArray alloc] init];
     NSMutableArray * akihabaraArray = [[NSMutableArray alloc] init];
     for (Photo * photo in self.masterCollection) {
@@ -95,6 +99,21 @@
     self.sortedCollection = @[akihabaraArray, shibuyaArray];
 }
 
+-(void) sortBySubject {
+    self.sortedBy = @"Subject";
+    NSMutableArray * FoodArray = [[NSMutableArray alloc] init];
+    NSMutableArray * OtherArray = [[NSMutableArray alloc] init];
+    for (Photo * photo in self.masterCollection) {
+        if ([photo.subject isEqualToString:@"Food"]) {
+            [FoodArray addObject: photo];
+        }else if ([photo.subject isEqualToString:@"Other"]) {
+            [OtherArray addObject:photo];
+        }
+    }
+    self.sortedCollection = @[FoodArray, OtherArray];
+}
+
+#pragma mark - Collection DataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     self.collectionView = collectionView;
     CollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
@@ -109,6 +128,22 @@
     
     cell.imageName = currentPhoto.name;
     return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    CollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reuseableView" forIndexPath:indexPath];
+    if (!self.sortedCollection) {
+        headerView.titleLabel.text = @"My Images";
+    }else {
+        NSArray * sectionPhotos = self.sortedCollection[indexPath.section];
+        Photo * currentPhoto = sectionPhotos[indexPath.row];
+        if ([self.sortedBy isEqualToString:@"Location"]) {
+            headerView.titleLabel.text = currentPhoto.location;
+        }else if ([self.sortedBy isEqualToString:@"Subject"]) {
+            headerView.titleLabel.text = currentPhoto.subject;
+        }
+    }
+    return headerView;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

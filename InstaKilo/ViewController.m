@@ -29,7 +29,7 @@
     [layout setMinimumLineSpacing:1];
     [layout setMinimumInteritemSpacing:1];
     
-    [self.photoManager sortByLocation];
+    [self.photoManager sortBySubject];
 }
 
 

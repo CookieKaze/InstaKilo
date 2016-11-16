@@ -13,8 +13,10 @@
 
 @property NSMutableArray * masterCollection;
 @property NSArray * sortedCollection;
+@property NSString * sortedBy;
 
 -(void) createMasterCollection;
 -(void) sortByLocation;
+-(void) sortBySubject;
 
 @end
