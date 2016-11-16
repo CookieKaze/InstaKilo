@@ -28,10 +28,17 @@
     layout.itemSize = size;
     [layout setMinimumLineSpacing:1];
     [layout setMinimumInteritemSpacing:1];
-    
-    [self.photoManager sortBySubject];
 }
 
+- (IBAction)sortLocation:(UIBarButtonItem *)sender {
+    [self.photoManager sortByLocation];
+    [self.collectionView reloadData];
+}
+
+- (IBAction)sortSubject:(UIBarButtonItem *)sender {
+    [self.photoManager sortBySubject];
+    [self.collectionView reloadData];
+}
 
 
 @end

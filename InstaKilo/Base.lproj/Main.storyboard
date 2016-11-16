@@ -91,7 +91,18 @@
                             <constraint firstItem="kXQ-7D-1Fd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="n9f-6Y-IXN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="s4R-0D-Sle"/>
+                    <navigationItem key="navigationItem" id="s4R-0D-Sle">
+                        <barButtonItem key="leftBarButtonItem" title="Sory by Location" id="dIQ-KH-LAG">
+                            <connections>
+                                <action selector="sortLocation:" destination="BYZ-38-t0r" id="bCu-wD-riD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sort By Subject" id="IKk-eB-S3N">
+                            <connections>
+                                <action selector="sortSubject:" destination="BYZ-38-t0r" id="kWY-Ik-BbO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="kXQ-7D-1Fd" id="Axk-SC-9TH"/>
                     </connections>

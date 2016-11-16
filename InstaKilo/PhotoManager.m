@@ -158,7 +158,6 @@
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSInteger count;
-    NSLog(@"%ld", (long)section);
     if (!self.sortedCollection) {
         count = [self.masterCollection count];
     }else {
